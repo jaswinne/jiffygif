@@ -1,0 +1,17 @@
+::ng-deep .delete-history {
+	.mat-option-text {
+		flex-direction: row;
+		box-sizing: border-box;
+		display: flex;
+		max-height: 100%;
+		place-content: center flex-start;
+		align-items: center;
+		font-style: italic;
+		color: red;
+
+		.material-icons {
+			font-size: 16px;
+			padding-right: 5px;
+		}
+	}
+}

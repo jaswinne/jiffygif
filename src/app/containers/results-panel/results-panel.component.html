@@ -1,0 +1,6 @@
+<div fxLayout='row' fxLayoutGap='4px' [style.width]='"100%"'>
+  <div fxLayout='column' [fxFlex]='100/numColumns' fxLayoutGap='4px' *ngFor='let column of columns'>
+    <app-image-card *ngFor='let result of column.results' [data]='result'>
+    </app-image-card>
+  </div>
+</div>

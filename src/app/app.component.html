@@ -1,0 +1,19 @@
+<div fxLayout='row' fxLayoutAlign="center center">
+  <div class='container' fxLayout='column' fxLayoutAlign='space-between center'>
+    <header>
+      <app-header-bar (search)='search($event)' (numColumns)='changeNumColumns($event)' (filterNSFW)='changeFilterNSFW($event)' [defaultFilterNSFW]='filterNSFW' [defaultNumColumns]='numColumns' [maxColumns]='MAX_COLUMNS' [disabled]='isLoadingMore'>
+      </app-header-bar>
+    </header>
+    <main #scrollingDiv (scroll)='onScroll($event)'>
+      <section fxLayout='column' fxLayoutGap='5px'>
+        <app-please-search *ngIf='!query || query===""'></app-please-search>
+        <app-no-results *ngIf='noResults && query!==""' [searchQuery]='query'></app-no-results>
+        <app-results-panel [results]='results' [numColumns]='numColumns' [filterNSFW]='filterNSFW' class='results-panel'></app-results-panel>
+      </section>
+    </main>
+    <footer>
+      <button mat-raised-button color='primary' *ngIf='showLoadMoreButton()' (click)='loadMore()'>Load more...</button>
+      <app-loading-bar *ngIf='isLoadingMore'></app-loading-bar>
+    </footer>
+  </div>
+</div>

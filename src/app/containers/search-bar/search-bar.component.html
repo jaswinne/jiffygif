@@ -1,0 +1,15 @@
+<mat-form-field [formGroup]='searchForm'>
+  <input matInput placeholder='Search...' (keyup)='$event.keyCode === 13 ? emitSearch() : ""'
+    formControlName='query' [matAutocomplete]="auto" />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{ option }}
+    </mat-option>
+    <mat-option *ngIf='(filteredOptions | async).length > 0' (click)='clearHistory()'
+      value='' class='delete-history'>
+      <i class="material-icons">delete</i>
+      <span>Delete history</span>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+<button mat-raised-button color='primary' (click)='emitSearch()' [disabled]='disabled'>Search</button>
