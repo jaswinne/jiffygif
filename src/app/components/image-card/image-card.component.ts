@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
 	styleUrls: ['./image-card.component.scss']
 })
 export class ImageCardComponent {
-	@Input() data: any[];
+	@Input() data: any;
 	constructor() {}
 }
