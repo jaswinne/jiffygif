@@ -11,12 +11,11 @@ export class GiphyService {
 	constructor(private http: HttpClient, private utilities: UtilitiesService) {}
 
 	searchGif(query, startIndex = 0): Observable<any> {
-		const qs = this.utilities.generateQueryString({
+		return this.http.post('/gifs', {
 			api_key: this.GIPHY_API_KEY,
 			q: query,
 			limit: this.RESULTS_LIMIT,
 			offset: startIndex
 		});
-		return this.http.get(`${this.GIPHY_URL}${qs}`);
 	}
 }
