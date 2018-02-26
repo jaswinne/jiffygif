@@ -1,9 +1,9 @@
 <mat-card [formGroup]='headerForm' fxLayout='row' fxLayoutGap='5px' fxLayoutAlign="space-between center">
-	<mat-checkbox fxFlex=25 formControlName='filterNSFW'>Filter NSFW</mat-checkbox>
-	<div fxFlex=50 fxLayout='row' fxLayoutAlign='center center'>
+	<mat-checkbox fxShow [fxShow.xs]=false fxFlex=25 formControlName='filterNSFW'>Filter NSFW</mat-checkbox>
+	<div fxFlex=50 fxLayout='row' fxFlex.xs=100 fxLayoutAlign='center center'>
 		<app-search-bar [disabled]='disabled' (search)='emitSearch($event)'></app-search-bar>
 	</div>
-	<div fxFlex=25 fxLayout='column'>
+	<div fxFlex=25 fxShow [fxShow.xs]=false fxLayout='column'>
 		<mat-form-field>
 			<mat-select id='columnDropdown' placeholder='No. of columns' formControlName="columnDropdown">
 				<mat-option *ngFor='let num of columnChoices' [value]='num'>{{num}}</mat-option>
